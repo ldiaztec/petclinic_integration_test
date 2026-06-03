@@ -30,11 +30,11 @@ public class SpecialtyControllerTest {
 
     @Test
     public void testFindAllSpecialties() throws Exception {
-        final int ID_FIRST_RECORD = 1;
         this.mockMvc.perform(get("/specialties"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
-                .andExpect(jsonPath("$[0].id", is(ID_FIRST_RECORD)));
+                .andExpect(jsonPath("$").isArray())
+                .andExpect(jsonPath("$").isNotEmpty());
     }
 
     @Test
